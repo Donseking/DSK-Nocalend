@@ -1,0 +1,129 @@
+body{
+    background-color: #272727;
+    font-family: "Minecraft", "Consolas", "教育部隸書";
+}
+
+#back{
+    width: 100px;
+    height: 40px;
+    background-color: #303030;
+    border: 3px solid skyblue;
+    border-radius: 10px;
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    color: aqua;
+    font-family: "Minecraft";
+    font-weight: bold;
+    text-shadow: aqua 0px 0px 3px;
+    box-shadow: 0px 0px 20px #000;
+    cursor: pointer;
+}
+
+#add{
+    width: 100px;
+    height: 40px;
+    background-color: #303030;
+    border: 3px solid skyblue;
+    border-radius: 10px;
+    color: aqua;
+    font-family: "Minecraft";
+    font-weight: bold;
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    box-shadow: 0px 0px 20px #000;
+    cursor: pointer;
+}
+
+.sticky{
+    width: 100px;
+    padding: 10px;
+    margin: 10px;
+    border: 3px solid skyblue;
+    border-radius: 15px;
+    background-color: #353535;
+    color: aqua;
+    box-shadow: 0px 0px 10px #000;
+    text-shadow: 0px 0px 5px aqua;
+    cursor: pointer;
+}
+
+.addwin{
+    width: 500px;
+    height: 500px;
+    background-color: rgb(47, 47, 47);
+    border-radius: 15px;
+    box-shadow: 0px 0px 20px #151515;
+    margin: auto;
+    opacity: 0.85;
+    visibility: hidden;
+    transform: translateY(300px) scaleY(0);
+    display: grid;
+    grid-row-gap: 10px;
+}
+
+#addwin-input{
+    display: grid;
+    grid-row-gap: 10px;
+    justify-items: center;
+}
+
+.addwin.show{
+    visibility: visible;
+    transform: translateY(20px) scaleY(1);
+    transition: transform 0.6s ease-in-out;
+}
+
+#addwin-title-input{
+    width: 400px;
+    height: 30px;
+    font-size: 25px;
+    background-color: #303030;
+    border: 3px solid skyblue;
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 30px;
+    color: aqua;
+    font-family: "教育部隸書";
+    font-size: large;
+    text-shadow: aqua 0px 0px 5px;
+    box-shadow: 0px 0px 20px #000;
+}
+
+#addwin-main-input{
+    resize : none;
+    width: 400px;
+    height: 300px;
+    border: 3px solid skyblue;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: #303030;
+    color: aqua;
+    font-family: "教育部隸書";
+    font-size: large;
+    text-shadow: aqua 0px 0px 5px;
+    box-shadow: 0px 0px 20px #000;
+}
+
+.enter{
+    display: grid;
+    justify-content: end;
+    width: 426px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.enters {
+    width: 100px;
+    height: 30px;
+    line-height: 30px;
+    border: 3px solid skyblue;
+    border-radius: 10px;
+    text-align: center;
+    justify-content: start;
+    color: aqua;
+    box-shadow: #000 0px 0px 20px;
+    text-shadow: aqua 0px 0px 5px;
+    cursor: pointer;
+}

@@ -1,0 +1,164 @@
+body{
+    background-color: #272727;
+    font-family: "Minecraft", "Consolas", "教育部隸書", "微軟正黑體", "標楷體";
+}
+
+.fillet{
+    border-radius: 10px;
+}
+
+.center{
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.calender{
+    background-color: #2c2c2c;
+    width: 600px;
+    height: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+    box-shadow: 0px 0px 10px rgb(22, 22, 22)
+}
+
+.month{
+    width: 400px;
+    font-size: 50px;
+    cursor: pointer;
+    color: aqua;
+    text-shadow: 0px 0px 5px rgba(0, 255, 255, 0.95);
+}
+
+.year{
+    width: 400px;
+    color: aqua;
+    text-shadow: 0px 0px 5px rgba(0, 255, 255, 0.95);
+}
+
+.arrow{
+    width: 20px;
+    height: 20px;
+    border: solid skyblue;
+    border-width: 0px 5px 5px 0px;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.left{
+    transform: rotate(135deg);
+    float: left;
+    margin-top: 35px;
+    margin-left: 30px;
+}
+
+.right{
+    transform: rotate(-45deg);
+    float: right;
+    margin-top: 35px;
+    margin-right: 30px;
+}
+
+.HolidayColor{
+    color: rgb(169, 159, 238);
+    text-shadow: rgba(169, 159, 238, 0.95) 0px 0px 10px;
+}
+
+.main{
+    width: 500px;
+    height: 500px;
+}
+
+.dayname{
+    height: 50px;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    font-weight: 600;
+    color: aqua;
+    text-shadow: rgba(0, 255, 255, 0.95) 0px 0px 10px;
+    font-size: larger;
+}
+
+
+.dayname div{
+    display: grid;
+    place-items: center;
+}
+
+.days{
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+}
+
+.days div{
+    width: 65.43px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 3px;
+    position: relative;
+    cursor: pointer;
+    animation: to-top 1s forwards;
+    border-radius: 10px;
+    color: aqua;
+}
+
+.days .calendar-day-hover-color:hover span{
+    transition:0.1s ease-in-out;
+    width: 65.43px;
+    height: 50px;
+    border-radius: 10px;
+    border: 3px #a99fee solid;
+}
+
+.days div:hover span{
+    transition:0.1s ease-in-out;
+    width: 65.43px;
+    height: 50px;
+    border-radius: 10px;
+    border: 3px aqua solid;
+}
+
+.days div span{
+    position: absolute;
+}
+
+.calendar-day-hover{
+    background-color: #303030;
+    box-shadow: 0px 0px 5px rgb(20, 20, 20, 0.8);
+}
+
+.days div.curr-date,
+.days div.curr-date:hover{
+    width: 59.43px;
+    height: 44px;
+    background-color: #2c2c2c;
+    border: #ebc087 solid 3px;
+}
+
+.list{
+    border-radius: 15px;
+    color: aqua;
+    position: absolute;
+    width: 300px;
+    height: 65%;
+    top: 50px;
+    left: 25%;
+    font-size: 28px;
+    text-align: center;
+    background-color: rgba(39, 39, 39, 0.85);
+    padding: 20px;
+    transform: scale(1.5);
+    visibility: hidden;
+    cursor: pointer;
+    box-shadow: 0px 0px 10px rgba(33, 33, 33, 0.7);
+}
+
+.list.show{
+    transform: scale(1);
+    visibility: visible;
+    pointer-events: visible;
+    transition: all 0.5s ease-in-out;
+}
