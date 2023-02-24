@@ -1,14 +1,18 @@
 import eel, json
 
+jsonpath = "./index/data/day-note.json"
 
 @eel.expose
 def add_data_to_json(day, title, content) :
-    with open("index/data/day-note.json", "r", encoding = "UTF8") as file :
+    with open(jsonpath, "r", encoding = "UTF8") as file :
         data = json.load(file)
     try :
         currdayNote = data["allday"][day]
-        print(currdayNote)
-        return currdayNote
+        stickylist = currdayNote["sticky-list"]
+        stickylist.append({"content" : content, "title" : title})
+        currdayNote["sticky-num"] = len(stickylist)
+        with open(jsonpath, "w") as f :
+            json.dump(data, f, indent = 4, separators = (",", " : "), sort_keys = True)
     except KeyError :
         data["allday"][day] = {
             "sticky-num" : 1,
@@ -19,7 +23,7 @@ def add_data_to_json(day, title, content) :
                 }
             ]
         }
-        with open("index/data/day-note.json", "w") as f :
+        with open(jsonpath, "w") as f :
             json.dump(data, f, indent = 4, sort_keys = True, separators = (",", " : "))
 
 

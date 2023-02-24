@@ -40,28 +40,25 @@ let main = document.querySelector(".main")
 
 main.onload = Geturl("data/day-note.json")
 
-function download(filename, textInput) {
-    let element = document.createElement("a")
-    element.setAttribute("href", "data:text/json;charset=utf-8, " + encodeURIComponent(textInput))
-    element.setAttribute("download", filename)
-    document.body.appendChild(element)
-    element.click()
-    document.body.removeChild(element)
-}
-
 
 async function add_sticky_in_json(title, content) {
     let day = String(localStorage.getItem("day"))
-    results =  await eel.add_data_to_json(day, title, content)()
+    let addwin_title_input = document.querySelector("#addwin-title-input")
+    let addwin_main_input = document.querySelector("#addwin-main-input")
+    await eel.add_data_to_json(day, title, content)()
+    addwin_title_input.value = ""
+    addwin_main_input.value = ""
+    location.reload()
 }
 
 function handata(datas) {
     let data = datas["allday"]
     let note = data[String(localStorage.getItem("day"))]
-    for( let i = 0; i < note.stickys; i ++){
+    for( let i = 0; i < note["sticky-num"]; i ++){
         let day = document.createElement("div")
         day.classList.add("sticky")
-        day.innerHTML = note["sticky-list"][i]["sticky-title"]
+        day.innerHTML = note["sticky-list"][i]["title"]
+        day.addEventListener("click", NoteWinShow)
         main.appendChild(day)
     }
 }
@@ -105,3 +102,38 @@ enters.addEventListener("click", () => {
     let content = document.querySelector("#addwin-main-input").value
     add_sticky_in_json(title, content)
 })
+
+let x = document.querySelector("#x")
+x.addEventListener("click", () => {
+    let addwin = document.querySelector(".addwin")
+    addwin.classList.remove("show")
+    times ++
+})
+
+
+let x2 = document.querySelector("#x2")
+x2.addEventListener("click", () => {
+    let notewin = document.querySelector(".notewin")
+    notewin.classList.remove("notewinshow")
+})
+
+function NoteWinShow() {
+    let notewin = document.querySelector(".notewin")
+    notewin.classList.add("notewinshow")
+}
+
+let de = document.querySelector(".delete")
+de.addEventListener("mouseover", () => {
+    de.style.backgroundColor = "skyblue"
+    de.style.color = "#272727"
+    de.style.border = "3px solid #00ffff"
+})
+de.addEventListener("mouseout", () => {
+    de.style.backgroundColor = "#272727"
+    de.style.color = "aqua"
+    de.style.border = "3px solid skyblue"
+})
+
+// de.addEventListener("click", () => {
+    
+// })
