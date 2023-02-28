@@ -91,10 +91,9 @@ body{
     grid-template-columns: repeat(7, 1fr);
 }
 
-.days div{
+.days .calendar-day-hover{
     width: 65.43px;
     height: 50px;
-    display: flex;
     align-items: center;
     justify-content: center;
     margin: 3px;
@@ -128,12 +127,14 @@ body{
 .calendar-day-hover{
     background-color: #303030;
     box-shadow: 0px 0px 5px rgb(20, 20, 20, 0.8);
+    display: grid;
+    grid-template-rows: 35px 15px;
 }
 
 .days div.curr-date,
 .days div.curr-date:hover{
     width: 59.43px;
-    height: 44px;
+    height: 50px;
     background-color: #2c2c2c;
     border: #ebc087 solid 3px;
 }
@@ -161,4 +162,22 @@ body{
     visibility: visible;
     pointer-events: visible;
     transition: all 0.5s ease-in-out;
+}
+
+.dday{
+    display: grid;
+    grid-template-columns: 15px 35px;
+    justify-items: center;
+    align-items: center;
+}
+
+.ddday{
+    background-color: #ebc087;
+    width: 35px;
+    height: 3px;
+    border-radius: 2px;
+}
+
+.notenum{
+    font-size: 2px;
 }

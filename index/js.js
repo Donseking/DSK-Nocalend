@@ -12,6 +12,11 @@ function writeday(day) {
     localStorage.setItem("day", day)
 }
 
+async function getnotenum(currday){
+    let div = await eel.GetNoteNum(currday)()
+    return div
+}
+
 generateCalendar = (month, year) => {
     let calendar_days = document.querySelector('.days')
     let calendar_header_year = document.querySelector('.year')
@@ -32,15 +37,34 @@ generateCalendar = (month, year) => {
 
     for (let i = 1; i <= days_of_month[month] + first_day.getDay() - 1; i++) {
         let day = document.createElement('div')
+        let dday = document.createElement('div')
+        let ddday = document.createElement('div')
+        let daynum = document.createElement("div")
         let co = [5, 6, 12, 13, 19, 20, 26, 27, 33, 34]
         if (i >= first_day.getDay()) {
             day.classList.add('calendar-day-hover')
             day.style.textShadow = "rgba(0, 255, 255, 0.95) 0px 0px 10px"
-            day.innerHTML = i - first_day.getDay() + 1
-            day.innerHTML += `<span></span>
-            <span></span>
-            <span></span>
-            <span></span>`
+            daynum.innerHTML = i - first_day.getDay() + 1
+            daynum.classList.add("daynum")
+            dday.classList.add("dday")
+            ddday.classList.add("ddday")
+            let currd = String(year) + String(month + 1) + String(i - first_day.getDay() + 1)
+            let note_num = getnotenum(currd)
+            note_num.then((re) => {
+                let notenum = document.createElement("div")
+                if (re != 0){
+                    notenum.innerHTML = re
+                }else {
+                    notenum.innerHTML = ""
+                }
+                notenum.classList.add("notenum")
+                dday.appendChild(notenum)
+                dday.appendChild(ddday)
+            }).catch((err) => {
+                console.log("file : js.js [57:47]\n" + err)
+            })
+            day.appendChild(daynum)
+            day.appendChild(dday)
             if (i - first_day.getDay() + 1 === currDate.getDate() && year === currDate.getFullYear() && month === currDate.getMonth()) {
                 day.classList.add('curr-date')
                 day.style.boxShadow = "0px 0px 10px #ebc087"

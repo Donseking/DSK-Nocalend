@@ -1,4 +1,5 @@
 let bt = document.querySelector("#back")
+let DAY = String(localStorage.getItem("day"))
 
 bt.addEventListener("click", () => {
     location.replace("./index.html")
@@ -42,23 +43,29 @@ main.onload = Geturl("data/day-note.json")
 
 
 async function add_sticky_in_json(title, content) {
-    let day = String(localStorage.getItem("day"))
     let addwin_title_input = document.querySelector("#addwin-title-input")
     let addwin_main_input = document.querySelector("#addwin-main-input")
-    await eel.add_data_to_json(day, title, content)()
+    await eel.add_data_to_json(DAY, title, content)()
     addwin_title_input.value = ""
     addwin_main_input.value = ""
     location.reload()
 }
 
+let Nnum = 0
 function handata(datas) {
     let data = datas["allday"]
     let note = data[String(localStorage.getItem("day"))]
     for( let i = 0; i < note["sticky-num"]; i ++){
         let day = document.createElement("div")
         day.classList.add("sticky")
+        day.classList.add(i)
         day.innerHTML = note["sticky-list"][i]["title"]
-        day.addEventListener("click", NoteWinShow)
+        day.addEventListener("click", () => {
+            NoteWinShow(note["sticky-list"][i]["content"])
+            localStorage.setItem("Ntitle", note["sticky-list"][i]["title"])
+            localStorage.setItem("Ncontent", note["sticky-list"][i]["content"])
+            Nnum = i
+        })
         main.appendChild(day)
     }
 }
@@ -117,9 +124,11 @@ x2.addEventListener("click", () => {
     notewin.classList.remove("notewinshow")
 })
 
-function NoteWinShow() {
+function NoteWinShow(c) {
     let notewin = document.querySelector(".notewin")
+    let con = document.querySelector("#NoteContent")
     notewin.classList.add("notewinshow")
+    con.value = c
 }
 
 let de = document.querySelector(".delete")
@@ -134,6 +143,12 @@ de.addEventListener("mouseout", () => {
     de.style.border = "3px solid skyblue"
 })
 
-// de.addEventListener("click", () => {
-    
-// })
+de.addEventListener("click", dejson)
+
+async function dejson(){
+    await eel.DeJData(DAY, localStorage.getItem("Ntitle"), Nnum)()
+    location.reload()
+}
+
+let con = document.querySelector(".console")
+con.innerHTML = localStorage.getItem("day")

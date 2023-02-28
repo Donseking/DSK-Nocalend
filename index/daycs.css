@@ -148,7 +148,7 @@ body{
 
 .notewin{
     width: 500px;
-    height: 500px;
+    height: 510px;
     background-color: #383838;
     border-radius: 15px;
     box-shadow: 0px 0px 20px #151515;
@@ -186,6 +186,9 @@ body{
     margin-top: 25px;
     border: 3px solid skyblue;
     box-shadow: 0px 0px 20px #151515;
+    color: aqua;
+    font-size: large;
+    padding: 10px;
 }
 
 .del{
@@ -209,4 +212,14 @@ body{
     text-shadow: aqua 0px 0px 5px;
     cursor: pointer;
     margin-top: 20px;
+}
+
+.console{
+    width: 350px;
+    position: absolute;
+    bottom: 10px;
+    left: 25%;
+    text-align: center;
+    color: aqua;
+    text-shadow: 0px 0px 10px aqua;
 }
