@@ -208,7 +208,7 @@ body{
     color: aqua;
     padding: 3px;
     padding-left: 7px;
-    border: #141414 1px solid;
+    border: #141414 0px solid;
     margin: 10px;
 }
 
@@ -226,6 +226,6 @@ body{
     float: right;
     background-color: #141414;
     margin: 10px;
-    border: #141414 1px solid;
+    border: #141414 0px solid;
     cursor: pointer;
 }
