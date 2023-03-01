@@ -1,3 +1,4 @@
+import time
 import eel, json
 
 jsonpath = "./index/data/day-note.json"
@@ -47,6 +48,10 @@ def GetNoteNum(day) :
     except KeyError :
         return 0
 
+@eel.expose
+def stop(times) :
+    time.sleep(times)
+    return 0
 
 eel.init("index")
-eel.start('index.html', size = (700, 700))
+eel.start('index.html', size = (700, 700), port = 42351)

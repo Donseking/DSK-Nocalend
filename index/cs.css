@@ -181,3 +181,45 @@ body{
 .notenum{
     font-size: 2px;
 }
+
+.find{
+    width: 350px;
+    height: 40px;
+    position: absolute;
+    bottom: 70px;
+    left: 25%;
+}
+
+.find_bar{
+    display: grid;
+}
+
+#find_input{
+    width: 20px;
+    height: 20px;
+    background-color: rgb(116, 79, 150);
+    border: #cac5e9 solid 3px;
+    border-radius: 20px;
+    transition: 0.9s ease-in-out;
+    float: right;
+    color: aqua;
+    padding: 5px;
+    padding-left: 10px;
+}
+
+#find_input.two{
+    width: 300px;
+    border-radius: 20px;
+    background-color: #bdbdbd;
+}
+
+
+.search{
+    width: 50px;
+    height: 30px;
+    border-radius: 20px;
+    background-color: rgb(172, 235, 227);
+    color: skyblue;
+    float: right;
+    border-left: 0px;
+}

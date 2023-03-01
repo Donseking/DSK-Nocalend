@@ -30,7 +30,8 @@ generateCalendar = (month, year) => {
     // if (!year) year = currDate.getFullYear()
 
     let curr_month = `${month_name[month]}`
-    month.innerHTML = curr_month
+    let mon = document.querySelector("#titlemonth")
+    mon.innerHTML = curr_month
     calendar_header_year.innerHTML = year
 
     let first_day = new Date(year, month, 1)
@@ -150,4 +151,38 @@ R.onmouseover = () => {
 R.onmouseout = () => {
     R.style.border = "solid skyblue"
     R.style.borderWidth = "0px 5px 5px 0px"
+}
+
+let find_input = document.querySelector("#find_input")
+find_input.addEventListener("mouseover", () => {
+    find_input.classList.add("two")
+    sleep(1)
+    .then((re) => {
+        if (re === 0) {
+            mout()
+        }
+    })
+    .catch((err) => {
+        console.log(err)
+    })
+})
+
+async function sleep(sec) {
+    let re = await eel.stop(sec)()
+    return re
+}
+
+function mout() {
+    find_input.addEventListener("mouseout", () => {
+        sleep(2)
+        .then((re) => {
+            if (re === 0) {
+                find_input.classList.remove("two")
+                find_input.value = ""
+            }
+        })
+        .catch((err) => {
+            console.log("file : js.js [ 172 : 36 ] " + err)
+        })
+    })
 }
