@@ -159,7 +159,7 @@ let find = document.querySelector(".find")
 find.addEventListener("mouseover", () => {
     find.classList.add("after")
     find_input.classList.add("two")
-    sleep(1)
+    sleep(3)
     .then((re) => {
         if (re === 0) {
             mout()
@@ -170,6 +170,24 @@ find.addEventListener("mouseover", () => {
     })
 })
 
+find_input.addEventListener("keyup", function(event){
+    event.preventDefault()
+    if (event.keyCode === 13) {
+        Algorithms(find_input.value)
+        .then((re) => {
+            alert(re[1])
+        })
+        .catch((err) => {
+            console.log(err)
+        })
+    }
+})
+
+async function Algorithms(words) {
+    let re = await eel.SearchAlgorithms(words)()
+    return re
+}
+
 async function sleep(sec) {
     let re = await eel.stop(sec)()
     return re
@@ -177,16 +195,28 @@ async function sleep(sec) {
 
 function mout() {
     find.addEventListener("mouseout", () => {
-        sleep(2)
+        sleep(3)
         .then((re) => {
             if (re === 0) {
                 find.classList.remove("after")
                 find_input.classList.remove("two")
                 find_input.value = ""
+                find_input.blur()
             }
         })
         .catch((err) => {
             console.log("file : js.js [ 172 : 36 ] " + err)
         })
     })
+}
+
+document.querySelector(".search").onclick = () => {
+    Algorithms(find_input.value)
+        .then((re) => {
+            alert(re[1])
+        })
+        .catch((err) => {
+            console.log(err)
+        })
+        document.querySelector(".search").blur()
 }

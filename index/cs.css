@@ -201,7 +201,7 @@ body{
 
 #find_input{
     width: 0px;
-    height: 15px;
+    height: 20px;
     background-color: #141414;
     border-radius: 20px;
     transition: 0.9s ease-in-out;

@@ -32,6 +32,7 @@ add.addEventListener("click", () => {
     let addwin = document.querySelector(".addwin")
     if (times%2 === 1) {
         addwin.classList.add("show")
+        document.querySelector("#addwin-title-input").focus()
     }else {
         addwin.classList.remove("show")
     }
