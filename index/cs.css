@@ -113,7 +113,7 @@ body{
 }
 
 .days div:hover span{
-    transition:0.1s ease-in-out;
+    transition:0.08s ease-in-out;
     width: 65.43px;
     height: 50px;
     border-radius: 10px;
@@ -183,43 +183,49 @@ body{
 }
 
 .find{
-    width: 350px;
+    width: 120px;
     height: 40px;
     position: absolute;
     bottom: 70px;
-    left: 25%;
+    right: 17.5%;
+    background-color: #141414;
+    transition: 0.9s ease-in-out;
+    border-radius: 20px;
+    float: right;
 }
 
-.find_bar{
-    display: grid;
+.find.after{
+    width: 450px;
 }
+
 
 #find_input{
-    width: 20px;
-    height: 20px;
-    background-color: rgb(116, 79, 150);
-    border: #cac5e9 solid 3px;
+    width: 0px;
+    height: 15px;
+    background-color: #141414;
     border-radius: 20px;
     transition: 0.9s ease-in-out;
-    float: right;
     color: aqua;
-    padding: 5px;
-    padding-left: 10px;
+    padding: 3px;
+    padding-left: 7px;
+    border: #141414 1px solid;
+    margin: 10px;
 }
 
 #find_input.two{
-    width: 300px;
+    width: 340px;
     border-radius: 20px;
-    background-color: #bdbdbd;
+    background-color: #303030;
 }
 
 
 .search{
     width: 50px;
-    height: 30px;
-    border-radius: 20px;
-    background-color: rgb(172, 235, 227);
+    height: 20px;
     color: skyblue;
     float: right;
-    border-left: 0px;
+    background-color: #141414;
+    margin: 10px;
+    border: #141414 1px solid;
+    cursor: pointer;
 }

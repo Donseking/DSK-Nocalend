@@ -46,6 +46,7 @@ generateCalendar = (month, year) => {
             day.classList.add('calendar-day-hover')
             day.style.textShadow = "rgba(0, 255, 255, 0.95) 0px 0px 10px"
             daynum.innerHTML = i - first_day.getDay() + 1
+            day.innerHTML = "<span></span>"
             daynum.classList.add("daynum")
             dday.classList.add("dday")
             ddday.classList.add("ddday")
@@ -154,7 +155,9 @@ R.onmouseout = () => {
 }
 
 let find_input = document.querySelector("#find_input")
-find_input.addEventListener("mouseover", () => {
+let find = document.querySelector(".find")
+find.addEventListener("mouseover", () => {
+    find.classList.add("after")
     find_input.classList.add("two")
     sleep(1)
     .then((re) => {
@@ -173,10 +176,11 @@ async function sleep(sec) {
 }
 
 function mout() {
-    find_input.addEventListener("mouseout", () => {
+    find.addEventListener("mouseout", () => {
         sleep(2)
         .then((re) => {
             if (re === 0) {
+                find.classList.remove("after")
                 find_input.classList.remove("two")
                 find_input.value = ""
             }
