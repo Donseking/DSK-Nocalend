@@ -225,6 +225,51 @@ setting.onmouseover = () => {
 setting.onmouseout = () => {
     setting.style.color = "#272727"
 }
-// setting.onclick = () => {
 
-// }
+let time_set = 0
+setting.onclick = () => {
+    time_set ++
+    let sp = document.querySelector(".separator")
+    if (time_set%4 === 1){
+        sp.classList.remove("slow2")
+        sp.classList.add("slow")
+    }else if (time_set%4 === 2) {
+        sp.classList.remove("slow")
+        sp.classList.add("slow2")
+    }else if (time_set%4 === 3){
+        sp.classList.remove("slow2")
+        sp.classList.add("slow")
+    }else {
+        sp.classList.remove("slow")
+        sp.classList.add("slow2")
+    }
+}
+
+let changeball = document.querySelector(".changeball")
+let change = document.querySelector(".change")
+
+let time_chan = 0
+change.onclick = () => {
+    time_chan ++
+    if (time_chan%4 === 1){
+        changeball.classList.remove("visite2")
+        change.classList.remove("bgc2")
+        changeball.classList.add("visite")
+        change.classList.add("bgc")
+    }else if (time_chan%4 === 2) {
+        changeball.classList.remove("visite")
+        change.classList.remove("bgc")
+        changeball.classList.add("visite2")
+        change.classList.add("bgc2")
+    }else if (time_chan%4 === 3){
+        changeball.classList.remove("visite2")
+        change.classList.remove("bgc2")
+        changeball.classList.add("visite")
+        change.classList.add("bgc")
+    }else {
+        changeball.classList.remove("visite")
+        change.classList.remove("bgc")
+        changeball.classList.add("visite2")
+        change.classList.add("bgc2")
+    }
+}

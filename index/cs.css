@@ -261,3 +261,84 @@ body{
 .set{
     color: #141414;
 }
+
+.separator{
+    width: 270px;
+    height: 70%;
+    background-color: #272727;
+    opacity: 0.9;
+    position: absolute;
+    right: 30px;
+    top: 30px;
+    transform: translateX(100px) scaleX(0);
+    border-bottom-left-radius: 20px;
+    border-top-left-radius: 20px;
+    border-left: 3px solid skyblue;
+    /* padding-top: 50px; */
+    display: grid;
+    grid-template-rows: repeat(7, 1fr);
+}
+
+.separator.slow{
+    transform: translateX(20px) scaleX(1);
+    transition: transform 1s ease-in-out;
+    right: 20px;
+    top: 20px;
+}
+.separator.slow2{
+    transform: translateX(100px) scaleX(0);
+    transition: transform 1s ease-in-out;
+    right: 20px;
+    top: 20px;
+}
+
+.theme{
+    display: grid;
+    grid-template-columns: 80px 40px 80px;
+    grid-gap: 10px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: aqua;
+    text-shadow: 0px 0px 10px aqua;
+}
+
+.change{
+    width: 30px;
+    height: 15px;
+    background-color: #272727;
+    border: 3px solid skyblue;
+    border-radius: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    cursor: pointer;
+}
+
+.changeball{
+    width: 15px;
+    height: 15px;
+    background-color: #484848;
+    border-radius: 50%;
+    margin-left: 0px;
+}
+
+.changeball.visite{
+    transition: margin 0.3s ease-in-out;
+    margin-left: 15px;
+}
+
+.changeball.visite2{
+    transition: margin 0.3s ease-in-out;
+    margin-left: 0px;
+}
+
+
+.bgc{
+    transition: background-color 0.3s ease-in-out;
+    background-color: rgb(197, 21, 21);
+}
+
+.bgc2{
+    transition: background-color 0.3s ease-in-out;
+    background-color: #272727;
+}
