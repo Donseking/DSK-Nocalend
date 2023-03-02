@@ -229,3 +229,12 @@ body{
     border: #141414 0px solid;
     cursor: pointer;
 }
+
+.setting{
+    width: 40px;
+    height: 40px;
+    background-color: #616161;
+    position: absolute;
+    right: 50px;
+    bottom: 70px;
+}

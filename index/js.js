@@ -160,10 +160,8 @@ find.addEventListener("mouseover", () => {
     find.classList.add("after")
     find_input.classList.add("two")
     sleep(3)
-    .then((re) => {
-        if (re === 0) {
-            mout()
-        }
+    .then(() => {
+        mout()
     })
     .catch((err) => {
         console.log(err)
@@ -195,14 +193,12 @@ async function sleep(sec) {
 
 function mout() {
     find.addEventListener("mouseout", () => {
-        sleep(3)
-        .then((re) => {
-            if (re === 0) {
-                find.classList.remove("after")
-                find_input.classList.remove("two")
-                find_input.value = ""
-                find_input.blur()
-            }
+        sleep(1)
+        .then(() => {
+            find.classList.remove("after")
+            find_input.classList.remove("two")
+            find_input.value = ""
+            find_input.blur()
         })
         .catch((err) => {
             console.log("file : js.js [ 172 : 36 ] " + err)
