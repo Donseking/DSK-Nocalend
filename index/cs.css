@@ -192,6 +192,7 @@ body{
     transition: 0.9s ease-in-out;
     border-radius: 20px;
     float: right;
+    box-shadow: 0px 0px 20px #000;
 }
 
 .find.after{
@@ -216,6 +217,7 @@ body{
     width: 340px;
     border-radius: 20px;
     background-color: #303030;
+    box-shadow: 0px 0px 20px #161616;
 }
 
 
@@ -233,8 +235,29 @@ body{
 .setting{
     width: 40px;
     height: 40px;
-    background-color: #616161;
+    box-shadow: 0px 0px 20px #141414;
     position: absolute;
-    right: 50px;
+    right: 60px;
     bottom: 70px;
+    border-radius: 20px;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
+
+.setting2{
+    width: 35px;
+    height: 35px;
+    transition: transform 1s ease-in-out;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+}
+
+.setting2:hover{
+    transform: rotate(80deg);
+}
+
+.set{
+    color: #141414;
 }

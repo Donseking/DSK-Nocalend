@@ -216,3 +216,15 @@ document.querySelector(".search").onclick = () => {
         })
         document.querySelector(".search").blur()
 }
+
+let setting = document.querySelector(".set")
+setting.style.color = "#272727"
+setting.onmouseover = () => {
+    setting.style.color = "skyblue"
+}
+setting.onmouseout = () => {
+    setting.style.color = "#272727"
+}
+// setting.onclick = () => {
+
+// }
