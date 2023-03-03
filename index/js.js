@@ -1,3 +1,18 @@
+async function checktheme(){
+    let re = await eel.retrunTheme()()
+    return re
+}
+
+document.querySelector("body").onload = () => {
+    let re = checktheme()
+    if ( re === "Dark" ) {
+        document.querySelector(".css").href = "darkcs.css"
+    }
+    else if ( re === "Light" ) {
+        document.querySelector(".css").href = "lightcs.css"
+    }
+}
+
 var month_name = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
 
 isLeapYear = (year) => {
@@ -44,7 +59,6 @@ generateCalendar = (month, year) => {
         let co = [5, 6, 12, 13, 19, 20, 26, 27, 33, 34]
         if (i >= first_day.getDay()) {
             day.classList.add('calendar-day-hover')
-            day.style.textShadow = "rgba(0, 255, 255, 0.95) 0px 0px 10px"
             daynum.innerHTML = i - first_day.getDay() + 1
             day.innerHTML = "<span></span>"
             daynum.classList.add("daynum")
@@ -69,13 +83,12 @@ generateCalendar = (month, year) => {
             day.appendChild(dday)
             if (i - first_day.getDay() + 1 === currDate.getDate() && year === currDate.getFullYear() && month === currDate.getMonth()) {
                 day.classList.add('curr-date')
-                day.style.boxShadow = "0px 0px 10px #ebc087"
+                // day.style.boxShadow = "0px 0px 10px #ebc087"
             }
             for (let j = 0; j < 10; j ++) {
                 if (i === (co[j] + 1)) {
                     day.classList.add('calendar-day-hover-color')
-                    day.style.color = "#a99fee"
-                    day.style.textShadow = "0px 0px 5px rgba(169, 159, 238, 0.85)"
+                    day.classList.remove("calendar-day-hover")
                 }
             }
             day.addEventListener("click", () => {
@@ -247,8 +260,12 @@ setting.onclick = () => {
 
 let changeball = document.querySelector(".changeball")
 let change = document.querySelector(".change")
-
 let time_chan = 0
+
+async function settheme(theme){
+    await eel.SetTheme(theme)()
+}
+
 change.onclick = () => {
     time_chan ++
     if (time_chan%4 === 1){
@@ -256,20 +273,36 @@ change.onclick = () => {
         change.classList.remove("bgc2")
         changeball.classList.add("visite")
         change.classList.add("bgc")
+        let header = document.querySelector("head")
+        let css = header.querySelector("#css")
+        css.href = "lightcs.css"
+        settheme("Light")
     }else if (time_chan%4 === 2) {
         changeball.classList.remove("visite")
         change.classList.remove("bgc")
         changeball.classList.add("visite2")
         change.classList.add("bgc2")
+        let header = document.querySelector("head")
+        let css = header.querySelector("#css")
+        css.href = "darkcs.css"
+        settheme("Dark")
     }else if (time_chan%4 === 3){
         changeball.classList.remove("visite2")
         change.classList.remove("bgc2")
         changeball.classList.add("visite")
         change.classList.add("bgc")
+        let header = document.querySelector("head")
+        let css = header.querySelector("#css")
+        css.href = "lightcs.css"
+        settheme("Light")
     }else {
         changeball.classList.remove("visite")
         change.classList.remove("bgc")
         changeball.classList.add("visite2")
         change.classList.add("bgc2")
+        let header = document.querySelector("head")
+        let css = header.querySelector("#css")
+        css.href = "darkcs.css"
+        settheme("Dark")
     }
 }

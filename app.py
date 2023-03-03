@@ -77,5 +77,19 @@ def SearchAlgorithms(keyword):
         res.append("file : tst.py\nNo relevant information found.")
     return res
 
+@eel.expose
+def SetTheme(theme) :
+    with open(jsonpath, "r") as f :
+        data = json.load(f)
+        data["Theme"] = theme
+    with open(jsonpath, "w") as f :
+        json.dump(data, f, indent = 4, sort_keys = True, separators = (",", " : "))
+
+@eel.expose
+def retrunTheme() :
+    with open(jsonpath, "r") as f :
+        data = json.load(f)
+    return data['Theme']
+
 eel.init("index")
 eel.start('index.html', size = (700, 700), port = 42351)
