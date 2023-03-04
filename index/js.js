@@ -172,7 +172,7 @@ let find = document.querySelector(".find")
 find.addEventListener("mouseover", () => {
     find.classList.add("after")
     find_input.classList.add("two")
-    sleep(3)
+    sleep(10)
     .then(() => {
         mout()
     })
@@ -231,12 +231,12 @@ document.querySelector(".search").onclick = () => {
 }
 
 let setting = document.querySelector(".set")
-setting.style.color = "#272727"
+setting.style.color = "#747474"
 setting.onmouseover = () => {
     setting.style.color = "skyblue"
 }
 setting.onmouseout = () => {
-    setting.style.color = "#272727"
+    setting.style.color = "#747474"
 }
 
 let time_set = 0

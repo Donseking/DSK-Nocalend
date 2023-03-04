@@ -1,5 +1,5 @@
 {
-    "Theme" : "Dark",
+    "Theme" : "Light",
     "allday" : {
         "202321" : {
             "sticky-list" : [],
@@ -31,34 +31,12 @@
             "sticky-num" : 1
         },
         "202332" : {
-            "sticky-list" : [
-                {
-                    "content" : "411290450",
-                    "title" : "\u8f14\u5927\u5b78\u865f"
-                },
-                {
-                    "content" : "0905069089",
-                    "title" : "\u96fb\u8a71"
-                },
-                {
-                    "content" : "F131829102",
-                    "title" : "\u8eab\u5206\u8b49"
-                }
-            ],
-            "sticky-num" : 3
+            "sticky-list" : [],
+            "sticky-num" : 0
         },
         "202333" : {
-            "sticky-list" : [
-                {
-                    "content" : "12313",
-                    "title" : "test"
-                },
-                {
-                    "content" : "0000",
-                    "title" : "123123"
-                }
-            ],
-            "sticky-num" : 2
+            "sticky-list" : [],
+            "sticky-num" : 0
         },
         "202336" : {
             "sticky-list" : [
