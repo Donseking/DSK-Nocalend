@@ -71,10 +71,10 @@ def SearchAlgorithms(keyword):
                     res.append(stickylist[i]["content"])
     if keyword == "" :
         res.append(405) # 405 代表值為空
-        res.append("file : tst.py\nSearch value is empty.")
+        res.append("file : app.py\nSearch value is empty.")
     elif keyword not in re :
         res.append(404)
-        res.append("file : tst.py\nNo relevant information found.")
+        res.append("file : app.py\nNo relevant information found.")
     return res
 
 @eel.expose
@@ -90,6 +90,20 @@ def retrunTheme() :
     with open(jsonpath, "r") as f :
         data = json.load(f)
     return data['Theme']
+
+@eel.expose
+def getjsondata(day) :
+    re1 = []
+    re2 = []
+    with open(jsonpath, "r", encoding = "UTF8") as f :
+        data = json.load(f)
+        data = data["allday"][day]["sticky-list"]
+    for i in data :
+        re1.append(i["title"])
+        re2.append(i["content"])
+    re3 = len(data)
+    return [re1, re2, re3]
+
 
 eel.init("index")
 eel.start('index.html', size = (700, 700), port = 42351)

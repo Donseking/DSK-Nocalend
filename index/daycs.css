@@ -193,10 +193,18 @@ body{
 
 .del{
     display: grid;
-    justify-content: end;
+    justify-content: center;
+    align-items: center;
+    grid-template-columns: 200px 200px;
     width: 426px;
     margin-left: auto;
     margin-right: auto;
+}
+
+.del2{
+    display: grid;
+    justify-content: end;
+    align-items: center;
 }
 
 .delete {
@@ -206,7 +214,6 @@ body{
     border: 3px solid skyblue;
     border-radius: 10px;
     text-align: center;
-    justify-content: start;
     color: aqua;
     box-shadow: #000 0px 0px 20px;
     text-shadow: aqua 0px 0px 5px;

@@ -39,8 +39,7 @@ add.addEventListener("click", () => {
 })
 
 let main = document.querySelector(".main")
-
-main.onload = Geturl("data/day-note.json")
+main.onload = Geturl()
 
 
 async function add_sticky_in_json(title, content) {
@@ -53,43 +52,23 @@ async function add_sticky_in_json(title, content) {
 }
 
 let Nnum = 0
-function handata(datas) {
-    let data = datas["allday"]
-    let note = data[String(localStorage.getItem("day"))]
-    for( let i = 0; i < note["sticky-num"]; i ++){
+async function Geturl(){
+    let re = await eel.getjsondata(localStorage.getItem("day"))
+    let re1 = re[0]
+    let re2 = re[1]
+    for( let i = 0; i < re[2]; i ++){
         let day = document.createElement("div")
         day.classList.add("sticky")
         day.classList.add(i)
-        day.innerHTML = note["sticky-list"][i]["title"]
+        day.innerHTML = re1[i]
         day.addEventListener("click", () => {
-            NoteWinShow(note["sticky-list"][i]["content"])
-            localStorage.setItem("Ntitle", note["sticky-list"][i]["title"])
-            localStorage.setItem("Ncontent", note["sticky-list"][i]["content"])
+            NoteWinShow(re2[i])
+            localStorage.setItem("Ntitle", re1[i])
+            localStorage.setItem("Ncontent", re2[i])
             Nnum = i
         })
         main.appendChild(day)
     }
-}
-
-function handlejson(url){
-    let req = new XMLHttpRequest()
-    req.open("GET", url)
-    req.responseType = "json"
-    req.send()
-    req.onload = () => {
-        handata(req.response)
-    }
-}
-
-
-function Geturl(path){
-    var url = fetch(path, (results) => { return results })
-    .then((results) => {
-        handlejson(results["url"])
-    })
-    url.catch((err) => {
-        console.log(err)
-    })
 }
 
 let enters = document.querySelector(".enters")
@@ -106,8 +85,12 @@ enters.addEventListener("mouseout", () => {
 })
 
 enters.addEventListener("click", () => {
+    let time = new Date()
+    let currtime = String(time.getHours()) + " - " + String(time.getMinutes()) + " - " + String(time.getSeconds())
     let title = document.querySelector("#addwin-title-input").value
     let content = document.querySelector("#addwin-main-input").value
+    let create = document.querySelector(".createtime")
+    create.innerHTML = "+++"
     add_sticky_in_json(title, content)
 })
 
