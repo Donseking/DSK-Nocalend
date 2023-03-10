@@ -3,14 +3,19 @@ async function checktheme(){
     return re
 }
 
-document.querySelector("body").onload = () => {
-    let re = checktheme()
-    if ( re === "Dark" ) {
-        document.querySelector(".css").href = "darkcs.css"
-    }
-    else if ( re === "Light" ) {
-        document.querySelector(".css").href = "lightcs.css"
-    }
+document.querySelector(".calender").onload = () => {
+    let cs = document.querySelector(".css")
+    checktheme()
+    .then((re) => {
+        if ( re === "Dark" ) {
+            cs.href = "darkcs.css"
+            alert("Dark")
+        }
+        else if ( re === "Light" ) {
+            cs.href = "lightcs.css" 
+            alert("Light")
+        }
+    })
 }
 
 var month_name = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];

@@ -56,18 +56,20 @@ async function Geturl(){
     let re = await eel.getjsondata(localStorage.getItem("day"))()
     let re1 = re[0]
     let re2 = re[1]
-    for( let i = 0; i < re[2]; i ++){
-        let day = document.createElement("div")
-        day.classList.add("sticky")
-        day.classList.add(i)
-        day.innerHTML = re1[i]
-        day.addEventListener("click", () => {
-            NoteWinShow(re2[i])
-            localStorage.setItem("Ntitle", re1[i])
-            localStorage.setItem("Ncontent", re2[i])
-            Nnum = i
-        })
-        main.appendChild(day)
+    if ( re[2] != 0 ){
+        for( let i = 0; i < re[2]; i ++){
+            let day = document.createElement("div")
+            day.classList.add("sticky")
+            day.classList.add(i)
+            day.innerHTML = re1[i]
+            day.addEventListener("click", () => {
+                NoteWinShow(re2[i])
+                localStorage.setItem("Ntitle", re1[i])
+                localStorage.setItem("Ncontent", re2[i])
+                Nnum = i
+            })
+            main.appendChild(day)
+        }
     }
 }
 
@@ -85,13 +87,10 @@ enters.addEventListener("mouseout", () => {
 })
 
 enters.addEventListener("click", () => {
-    let time = new Date()
-    let currtime = String(time.getHours()) + " - " + String(time.getMinutes()) + " - " + String(time.getSeconds())
     let title = document.querySelector("#addwin-title-input").value
     let content = document.querySelector("#addwin-main-input").value
-    let create = document.querySelector(".createtime")
-    create.innerHTML = "+++"
     add_sticky_in_json(title, content)
+    NoteBuildTime()
 })
 
 let x = document.querySelector("#x")
@@ -113,6 +112,8 @@ function NoteWinShow(c) {
     let con = document.querySelector("#NoteContent")
     notewin.classList.add("notewinshow")
     con.value = c
+    let buildtime = document.querySelector(".createtime")
+    buildtime.innerHTML = localStorage.getItem("NoteBuildTime")
 }
 
 let de = document.querySelector(".delete")
@@ -132,6 +133,16 @@ de.addEventListener("click", dejson)
 async function dejson(){
     await eel.DeJData(DAY, localStorage.getItem("Ntitle"), Nnum)()
     location.reload()
+}
+
+
+
+function NoteBuildTime(){
+    let buildtime = new Date()
+    let curd = String(buildtime.getFullYear()) + " " + String(buildtime.getMonth() + 1) + " " + String(buildtime.getDate())
+    let currtime = String(buildtime.getHours()) + " " + String(buildtime.getMinutes()) + " " + String(buildtime.getSeconds())
+    let t = curd + " " + currtime
+    localStorage.setItem("NoteBuildTime", t)
 }
 
 let con = document.querySelector(".console")

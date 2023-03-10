@@ -95,13 +95,17 @@ def retrunTheme() :
 def getjsondata(day) :
     re1 = []
     re2 = []
-    with open(jsonpath, "r", encoding = "UTF8") as f :
-        data = json.load(f)
-        data = data["allday"][day]["sticky-list"]
-    for i in data :
-        re1.append(i["title"])
-        re2.append(i["content"])
-    re3 = len(data)
+    re3 = 0
+    try :
+        with open(jsonpath, "r", encoding = "UTF8") as f :
+            data = json.load(f)
+            data = data["allday"][day]["sticky-list"]
+        for i in data :
+            re1.append(i["title"])
+            re2.append(i["content"])
+            re3 = len(data)
+    except KeyError :
+        pass
     return [re1, re2, re3]
 
 
