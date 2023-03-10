@@ -53,7 +53,7 @@ async function add_sticky_in_json(title, content) {
 
 let Nnum = 0
 async function Geturl(){
-    let re = await eel.getjsondata(localStorage.getItem("day"))
+    let re = await eel.getjsondata(localStorage.getItem("day"))()
     let re1 = re[0]
     let re2 = re[1]
     for( let i = 0; i < re[2]; i ++){

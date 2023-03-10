@@ -26,17 +26,9 @@
                 {
                     "content" : "\u5e6b\u7f8e\u6148\u4ee3\u73ed\n\n\u6642\u9593 : 18 00",
                     "title" : "\u4ee3\u73ed"
-                },
-                {
-                    "content" : "aaaa",
-                    "title" : "aaaa"
-                },
-                {
-                    "content" : "\u6e2c\u8a66",
-                    "title" : "\u6e2c\u8a66"
                 }
             ],
-            "sticky-num" : 3
+            "sticky-num" : 1
         },
         "202332" : {
             "sticky-list" : [],
